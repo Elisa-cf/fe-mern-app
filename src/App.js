@@ -1,7 +1,15 @@
 import React from 'react';
+import {Switch, Route, Redirect} from 'react-router-dom';
+import Users from './users/pages/Users';
+import NewPlace from './places/pages/NewPlace';
 
-function App() {
-  return <h1>Let's start!</h1>;
-}
+const App = () => {
+  return (
+  <Switch>
+<Route exact path='/'><Users/></Route>
+<Route path='/places/new'><NewPlace/></Route>
+<Redirect to='/'/>
+</Switch>
+)}
 
 export default App;
