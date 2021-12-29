@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { useParams } from 'react-router-dom'
+import App from '../../App';
 import PlaceList from '../components/PlaceList';
 
 const DUMMY_PLACES = [
@@ -30,8 +31,11 @@ const DUMMY_PLACES = [
 ];
 
 const UserPlaces = () => {
-
-    return <PlaceList items={DUMMY_PLACES} />;
+    const userId = useParams().userId;
+    // userId => line 23 in App.js. It gives acces to the user id that is encoded in the url
+    const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId)
+    // in order to show just hte images of the creator u1, u2, etc we need to use filter.
+    return <PlaceList items={loadedPlaces} />;
 };
 
 export default UserPlaces;
