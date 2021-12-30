@@ -34,7 +34,7 @@ const UserPlaces = () => {
     const userId = useParams().userId;
     // userId => line 23 in App.js. It gives acces to the user id that is encoded in the url
     const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId)
-    // in order to show just hte images of the creator u1, u2, etc we need to use filter.
+    // in order to show just the places of the creator u1, u2, etc we need to use filter.
     return <PlaceList items={loadedPlaces} />;
 };
 
